@@ -1,5 +1,9 @@
 <?php
 require_once("./conexion.php");
+function cmpArrayDeObjetos($a, $b)
+{
+    return strcmp($a->nombre, $b->nombre);
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,13 +21,13 @@ require_once("./conexion.php");
 </head>
 
 <body class="container-xl bg-info">
-    <header>
-        <h1 class="text-center">Gestión de Productos</h1>
+    <header class="row">
+        <h1 class="col text-center">Gestión de Productos</h1>
     </header>
     <main>
         <section>
-            <form name="eleccionCrearProducto" method="post" action="./crear.php" target="_self">
-                <button type="submit" class="btn btn-success mb-2" name="opcionCrear" value="ok">Crear</button>
+            <form class="row" name="eleccionCrearProducto" method="post" action="./crear.php" target="_self">
+                <button type="submit" class="col-md-1 btn btn-success mx-3 mb-3" name="opcionCrear" value="ok">Crear</button>
             </form>
         </section>
         <section>
@@ -33,7 +37,7 @@ require_once("./conexion.php");
                         <th>Detalle</th>
                         <th>Código</th>
                         <th>Nombre</th>
-                        <th class='row justify-content-center'>Acciones</th>
+                        <th class='row col justify-content-center'>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,19 +46,20 @@ require_once("./conexion.php");
                     $objPDOResult = $conProyecto->query($consultaProductos);
                     if ($objPDOResult->rowCount() != 0) {
                         $arrayRegistrosProductos = $objPDOResult->fetchAll(PDO::FETCH_OBJ);
+                        usort($arrayRegistrosProductos, "cmpArrayDeObjetos");
                         foreach ($arrayRegistrosProductos as $registro) {
                             echo "<tr class='text-center'>";
                             echo "<td><form name='detalleRegistroProductos' method='get' action='./detalle.php' target='_self'>";
-                            echo "<button type='submit' class='btn btn-primary' name='id' value='$registro->id'>Detalle</button>";
+                            echo "<button type='submit' class='btn btn-info text-white' name='id' value='$registro->id'>Detalle</button>";
                             echo "</form></td>";
                             echo "<td>$registro->id</td>";
                             echo "<td>$registro->nombre</td>";
                             echo "<td class='row'>";
-                            echo "<form class='col' name='actualizarRegistroProductos' method='get' action='./actualizar.php' target='_self'>";
-                            echo "<button type='submit' class='btn btn-warning' name='idProducto' value='$registro->id'>Actualizar</button>";
+                            echo "<form class='col-lg-6' name='actualizarRegistroProductos' method='get' action='./update.php' target='_self'>";
+                            echo "<button type='submit' class='col-12 btn btn-warning' name='id' value='$registro->id'>Actualizar</button>";
                             echo "</form>";
-                            echo "<form class='col' name='BorrarRegistroProductos' method='post' action='./borrar.php' target='_self'>";
-                            echo "<button type='submit' class='btn btn-danger' name='id' value='$registro->id'>Borrar</button>";
+                            echo "<form class='col-lg-6' name='BorrarRegistroProductos' method='post' action='./borrar.php' target='_self'>";
+                            echo "<button type='submit' class='col-12 btn btn-danger' name='id' value='$registro->id'>Borrar</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";

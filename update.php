@@ -124,7 +124,7 @@ if (isset($_GET['id'])) {
                         <div class="row"><label class="form-label" for="idDescripcion">Descripción</label></div>
                         <div class="row"><textarea name="descripcion" class="form-control" id="idDescripcion" rows="15"><?php echo "$objRegistro->descripcion"; ?></textarea></div>
                     </div>
-                    <div class="col-sm-3 mt-3">
+                    <div class="col-sm-3 mt-3 align-self-center">
                         <div class="row">
                             <p class="text-center">
                                 <?php

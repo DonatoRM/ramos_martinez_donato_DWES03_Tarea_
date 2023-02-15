@@ -48,9 +48,12 @@ if (isset($_POST['id'])) {
                     <?php echo "<p class='fw-bold'>$respuesta</p>"; ?>
                 </div>
                 <div class="col-1">
-                    <a href="./listado.php" class="btn btn-outline-secondary ms-3">Volver</a>
+                    <a href="./listado.php" class="btn btn-outline-secondary btn-sm ms-3">Volver</a>
                 </div>
             </div>
         </section>
     </main>
+    <?php
+    $conProyecto = null;
+    ?>
 </body>

@@ -4,7 +4,7 @@ $resultado = "";
 if (isset($_POST['crearProducto'])) {
     // Veamos si existe o no el nombre corto del producto introducido
     $nombreCorto = strtoupper(trim($_POST['nombreCorto']));
-    $consultaNombreCortoProducto = "SELECT id from productos where upper(nombre_corto)=upper('$nombreCorto')";
+    $consultaNombreCortoProducto = "SELECT id FROM productos WHERE upper(nombre_corto)=upper('$nombreCorto')";
     $objPDOStatement = $conProyecto->query($consultaNombreCortoProducto);
     if ($objPDOStatement->rowCount() == 0) {
         // No existe el producto. Luego vamos a insertarlo mediante una inserción preparada
@@ -23,7 +23,7 @@ if (isset($_POST['crearProducto'])) {
             $stmt->execute();
             $resultado = "REGISTRO INSERTADO";
         } else {
-            $resultado = "Los datos no son válidos";
+            $resultado = "LOS DATOS NO SON VÁLIDOS";
         }
     } else {
         $resultado = "REGISTRO REPETIDO O ERRÓNEO";
@@ -52,22 +52,22 @@ if (isset($_POST['crearProducto'])) {
     <main>
         <section>
             <form name="eleccionCrearProducto" method="post" action="./crear.php" target="_self">
-                <div class="row justify-content-evenly">
-                    <div class="col-sm-5">
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 me-sm-2">
                         <div class="row"><label class="form-label" for="idNombre">Nombre</label></div>
                         <div class="row"><input type="text" name="nombre" id="idNombre" class="form-control" placeholder="Nombre" required></div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-5 ms-sm-2">
                         <div class="row"><label class="form-label" for="idNombreCorto">Nombre Corto</label></div>
                         <div class="row"><input type="text" name="nombreCorto" id="idNombreCorto" class="form-control" placeholder="Nombre Corto" required></div>
                     </div>
                 </div>
-                <div class="row justify-content-evenly">
-                    <div class="col-sm-5">
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 me-sm-2">
                         <div class="row"><label class="form-label" for="idPrecio">Precio (€)</label></div>
                         <div class="row"><input type="number" name="precio" id="idPrecio" class="form-control" placeholder="Precio (€)" min="0" step="0.01" required></div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-5 ms-sm-2">
                         <div class="row"><label class="form-label" for="idFamilia">Familia</label></div>
                         <div class="row">
                             <select name="familia" id="idFamilia" class="form-select" required>
@@ -80,21 +80,21 @@ if (isset($_POST['crearProducto'])) {
                                         echo "<option value='$registro->cod'>$registro->nombre</option>";
                                     }
                                 } else {
-                                    $resultado = "No existen Familias";
+                                    $resultado = "NO EXISTEN FAMILIAS";
                                 }
                                 ?>
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-evenly">
-                    <div class="col-sm-7">
+                <div class="row justify-content-center">
+                    <div class="col-sm-7 me-sm-3">
                         <div class="row"><label class="form-label" for="idDescripcion">Descripción</label></div>
                         <div class="row"><textarea name="descripcion" class="form-control" id="idDescripcion" rows="15"></textarea></div>
                     </div>
-                    <div class="col-sm-3 mt-3">
+                    <div class="col-sm-3 mt-3 align-self-center">
                         <div class="row">
-                            <p class="text-center">
+                            <p class="col text-center">
                                 <?php
                                 echo $resultado;
                                 ?>
@@ -102,16 +102,16 @@ if (isset($_POST['crearProducto'])) {
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-evenly">
+                <div class="row justify-content-center">
                     <div class="col-sm-7">
-                        <div class="row justify-content-evenly">
-                            <div class="col-sm-3 mt-3 d-grid gap-2 col-12">
+                        <div class="row justify-content-start ">
+                            <div class="col-md-2 mt-3 d-grid gap-2 col-12">
                                 <button type="submit" class="btn btn-primary " name="crearProducto" value="ok">Crear</button>
                             </div>
-                            <div class="col-sm-3 mt-3 d-grid gap-2 col-12">
+                            <div class="col-md-2 mt-3 d-grid gap-2 col-12">
                                 <button type="reset" class="btn btn-success col-sm-12">Limpiar</button>
                             </div>
-                            <div class="col-sm-3 mt-3 d-grid gap-2 col-12">
+                            <div class="col-md-2 mt-3 d-grid gap-2 col-12 me-5">
                                 <a href="./listado.php" class="btn col-sm-12 text-white" style="background-color: #2596be;" target="_self">Volver</a>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ $objRegistro;
 if (isset($_GET['id'])) {
     if (ctype_digit($_GET['id']) ? true : false) {
         $id = intval($_GET['id']);
-        $consultaDetalle = "SELECT * FROM productos WHERE id=$id";
+        $consultaDetalle = "SELECT * FROM productos WHERE id=$id ORDER BY nombre";
         $objPDOResult = $conProyecto->query($consultaDetalle);
         if ($objPDOResult->rowCount() == 1) {
             $objRegistro = $objPDOResult->fetch(PDO::FETCH_OBJ);
@@ -35,17 +35,17 @@ if (isset($_GET['id'])) {
 
 <body class="container-xl bg-info">
     <header class="row mb-4">
-        <h1 class="col-xl-12 text-center">Detalle Producto</h1>
+        <h1 class="col-12 text-center">Detalle Producto</h1>
     </header>
     <main>
         <section>
             <div class="row  justify-content-center">
                 <div class="col-10">
-                    <form name="detalleProducto" class="card text-white" style="background-color: #2596be;">
-                        <div class="row">
-                            <div class="col text-center "><?php echo "<p class='pt-2 pb-2'>$objRegistro->nombre</p>"; ?></div>
+                    <form name="detalleProducto" style="background-color: #2596be;">
+                        <div class="row" class="card">
+                            <div class="col text-center text-white"><?php echo "<p class='pt-2 pb-2 border-bottom'>$objRegistro->nombre</p>"; ?></div>
                         </div>
-                        <div class="row">
+                        <div class="row text-white">
                             <div class="col">
                                 <div class="row">
                                     <div class="col text-center"><?php echo "<p>Código: $objRegistro->id</p>"; ?></div>
