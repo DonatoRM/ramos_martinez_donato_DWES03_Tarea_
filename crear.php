@@ -112,7 +112,7 @@ if (isset($_POST['crearProducto'])) {
                                 <button type="reset" class="btn btn-success col-sm-12">Limpiar</button>
                             </div>
                             <div class="col-sm-3 mt-3 d-grid gap-2 col-12">
-                                <a href="./listado.php" class="btn btn-outline-primary col-sm-12" target="_self">Volver</a>
+                                <a href="./listado.php" class="btn col-sm-12 text-white" style="background-color: #2596be;" target="_self">Volver</a>
                             </div>
                         </div>
                     </div>
