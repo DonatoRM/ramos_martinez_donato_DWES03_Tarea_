@@ -42,7 +42,7 @@ require_once("./conexion.php");
                     $objPDOResult = $conProyecto->query($consultaProductos);
                     if ($objPDOResult->rowCount() != 0) {
                         $arrayRegistrosProductos = $objPDOResult->fetchAll(PDO::FETCH_OBJ);
-                        foreach ($arrayRegistrosProductos as $key => $registro) {
+                        foreach ($arrayRegistrosProductos as $registro) {
                             echo "<tr class='text-center'>";
                             echo "<td><form name='detalleRegistroProductos' method='get' action='./detalle.php' target='_self'>";
                             echo "<button type='submit' class='btn btn-primary' name='id' value='$registro->id'>Detalle</button>";
@@ -66,5 +66,8 @@ require_once("./conexion.php");
         </section>
     </main>
 </body>
+<?php
+$conProyecto = null;
+?>
 
 </html>
