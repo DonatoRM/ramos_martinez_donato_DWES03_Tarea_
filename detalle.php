@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
                                     <div class="col"><?php echo "<p class='mx-2'>PVP (€): $objRegistro->pvp</p>"; ?></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col"><?php echo "<p class='mx-2'>Descripción: $objRegistro->descripcion</p>"; ?></div>
+                                    <div class="col"><?php echo "<pre class='mx-2'>Descripción: $objRegistro->descripcion</pre>"; ?></div>
                                 </div>
                             </div>
                         </div>

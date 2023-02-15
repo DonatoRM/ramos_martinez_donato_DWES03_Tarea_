@@ -54,7 +54,7 @@ require_once("./conexion.php");
                             echo "<button type='submit' class='btn btn-warning' name='idProducto' value='$registro->id'>Actualizar</button>";
                             echo "</form>";
                             echo "<form class='col' name='BorrarRegistroProductos' method='post' action='./borrar.php' target='_self'>";
-                            echo "<button type='submit' class='btn btn-danger' name='idProducto' value='$registro->id'>Borrar</button>";
+                            echo "<button type='submit' class='btn btn-danger' name='id' value='$registro->id'>Borrar</button>";
                             echo "</form>";
                             echo "</td>";
                             echo "</tr>";
