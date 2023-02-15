@@ -5,7 +5,7 @@
 <ul>
 <li><code><strong>listado.php</strong></code>. Mostrará en una tabla los datos <strong>código</strong> y <strong>nombre</strong> y los botones para crear un nuevo registro, actualizar uno existente, borrarlo o ver todos sus detalles. Ver imagen.</li>
 <li><code><strong>crear.php</strong></code>. Será un formulario para rellenar todos los campos de productos (a excepción del <strong>id</strong>). Para la familia nos aparecerá un "<code><strong>select</strong></code>" con los nombre de las familias de los productos para elegir uno (lógicamente aunque mostremos los nombres pro formulario enviaremos el código). Ver imagen.</li>
-<li><code>detalle.php<strong></strong></code>. Mostrará todo los detalles del producto seleccionado.</li>
+<li><code><strong>detalle.php</strong></code>. Mostrará todo los detalles del producto seleccionado.</li>
 <li><code><strong>update.php</strong></code>. Nos aparecerá un formulario con los campos rellenos con los valores del producto seleccionado desde "<strong>listado.php</strong>" incluido el select donde seleccionamos la familia.</li>
 <li><code><strong>borrar.php</strong></code>. Será una página <strong>php</strong> con el código necesario para borrar el producto seleccionado desde "<strong>listado.php</strong>" un mensaje de información y un botón volver para volver a "<code><strong>listado.php</strong></code>".</li>
 </ul>
